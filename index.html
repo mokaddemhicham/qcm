@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="icon" type="image/png" href="img/appicon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/appicon.png" sizes="32x32">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- <script src="https://kit.fontawesome.com/1f7606f025.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.16/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.16/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.16/dist/js/uikit-icons.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            
+                <form action="">
+                    <img src="img/appicon.png" alt="" width="200" class="mb-4">
+                    <input type="text" name="name" class="form-control p-2" id="username" placeholder="Enter Your Full Name" data-aos="fade-down">
+                    <div class="invalid-feedback">
+                        Please Enter Your Full Name.
+                    </div>
+                    <button type="button" id="send" class="btn btn-primary p-2 mt-2" data-aos="fade-right">Start Game</button>
+                    <!-- This is a button toggling the modal with the default close button -->
+                    <button type="button" id="send" class="btn btn-primary p-2 mt-2" uk-toggle="target: #modal-close-default" data-aos="fade-left">Top Scorer</button>
+
+                    <!-- This is the modal with the default close button -->
+                    <div id="modal-close-default" uk-modal>
+                        <div class="uk-modal-dialog uk-modal-body">
+                            <button class="uk-modal-close-default" type="button" uk-close></button>
+                            <h2 class="uk-modal-title">Top Scorer</h2>
+                            <div class="box">
+                                <div class="rank">1</div>
+                                <div class="info-scorer">
+                                    <h3 class="scorer-name">Hicham Mokaddem</h3>
+                                    <div class="score">
+                                        <span class="right-answers">Answers : 2/4</span>
+                                        <span class="time">Time : 00 : 12</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="rank">2</div>
+                                <div class="info-scorer">
+                                    <h3 class="scorer-name">Bilal Mbarki</h3>
+                                    <div class="score">
+                                        <span class="right-answers">Answers : 3/4</span>
+                                        <span class="time">Time : 00 : 15</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </div>
+    <script >
+        var sendBtn = document.getElementById("send");
+        sendBtn.addEventListener("click",function(){
+        var userName = document.getElementById("username");
+        if(userName.value !== ""){
+            location.replace("quiz.html");
+            localStorage.setItem("username", userName.value);
+        }else{
+            userName.classList.add("is-invalid");
+        }
+        });
+    AOS.init();
+    </script>
+    
+</body>
+</html>
